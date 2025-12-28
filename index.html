@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aapoorti Shopping Malls Limited</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --crimson: #d90429;
+      --crimson-dark: #7f0015;
+      --pearl: #fff9f7;
+      --ink: #0d0d0f;
+      --sand: #ffe7df;
+      --muted: #b85a63;
+      --card: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 20px 80px rgba(0, 0, 0, 0.25);
+      color-scheme: only light;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Sora", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(217, 4, 41, 0.18), transparent 30%),
+                  radial-gradient(circle at 80% 0%, rgba(127, 0, 21, 0.2), transparent 32%),
+                  linear-gradient(145deg, #0b0b0e 0%, #140007 50%, #0b0b0e 100%);
+      color: var(--pearl);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      background: url("../Apoorti Logo/background-textures.webp");
+      mix-blend-mode: soft-light;
+      opacity: 0.08;
+      pointer-events: none;
+      filter: saturate(0) contrast(120%);
+      z-index: 1;
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      padding: 24px clamp(18px, 3vw, 36px) 72px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    header.nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 24px rgba(217, 4, 41, 0.45));
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--sand);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      padding: clamp(18px, 3vw, 32px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(217, 4, 41, 0.14), rgba(127, 0, 21, 0.16));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: -120px 20% auto auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(217, 4, 41, 0.3), transparent 60%);
+      filter: blur(50px);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-text h2 {
+      margin: 0 0 14px;
+      font-size: clamp(32px, 6vw, 46px);
+      line-height: 1.05;
+    }
+
+    .hero-text p {
+      margin: 0 0 18px;
+      color: var(--sand);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(120deg, var(--crimson), #ff5165);
+      color: white;
+      box-shadow: 0 15px 40px rgba(217, 4, 41, 0.35);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--sand);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 18px;
+      backdrop-filter: blur(6px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .metric {
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .metric h3 {
+      margin: 0;
+      font-size: 24px;
+      color: var(--pearl);
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--sand);
+      font-size: 13px;
+      letter-spacing: 0.3px;
+    }
+
+    section {
+      margin-top: 42px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      font-size: 18px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--sand);
+    }
+
+    .divider {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), transparent);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(217, 4, 41, 0.55);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .card h4 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .card p, .card ul {
+      margin: 0;
+      color: var(--sand);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--pearl);
+      border: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .grid-tight {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .stat-block {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .stat-block strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .cities {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+    }
+
+    .city {
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 13px;
+      color: var(--pearl);
+      transition: transform 0.15s ease;
+    }
+
+    .city:hover {
+      transform: translateY(-3px);
+      border-color: rgba(217, 4, 41, 0.6);
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      align-items: center;
+    }
+
+    .story img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.25);
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      margin-top: 48px;
+      padding: 18px 0 12px;
+      color: var(--sand);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .floating-tag {
+      position: absolute;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--pearl);
+      font-size: 13px;
+      backdrop-filter: blur(4px);
+      animation: float 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .floating-tag:nth-child(1) { top: 16px; right: 16px; animation-delay: 0.2s; }
+    .floating-tag:nth-child(2) { bottom: 16px; left: 16px; animation-delay: 0.8s; }
+    .floating-tag:nth-child(3) { bottom: 46%; right: 12px; animation-delay: 1.2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); opacity: 0.9; }
+      50% { transform: translateY(-8px); opacity: 1; }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 640px) {
+      header.nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero {
+        padding: 18px;
+      }
+      .story img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <main>
+    <header class="nav">
+      <div class="brand">
+        <img src="../Apoorti Logo/Aapurti logo white Logo.png" alt="Aapoorti logo" />
+        <div>
+          <h1>Aapoorti Shopping Malls Limited</h1>
+          <div class="pill">Central India · FMCG · Grocery · Essentials</div>
+        </div>
+      </div>
+      <div class="pill">Founded 2002 · CIN U52190MP2002PLC015262</div>
+    </header>
+
+    <section class="hero fade-up">
+      <div class="floating-tag">Value-for-money mix</div>
+      <div class="floating-tag">3+ decades of retail execution</div>
+      <div class="floating-tag">Bhopal HQ · Central India</div>
+
+      <div class="hero-text">
+        <h2>Quality that stays honest. Pricing that stays sharp.</h2>
+        <p>
+          Aapoorti runs hyper marts, super markets, and warehouses built around trust, transparent pricing, and
+          reliable availability—serving daily needs across Central India’s busiest neighborhoods.
+        </p>
+        <div class="cta-row">
+          <button class="btn primary">Explore network</button>
+          <button class="btn ghost">Meet our supply chain</button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="pill" style="display:inline-flex; align-items:center; gap:6px; margin-bottom:10px;">
+          Growth Phase · 2025 Plan
+        </div>
+        <div class="hero-grid">
+          <div class="metric">
+            <h3>30+ yrs</h3>
+            <span>Daily consumer trust</span>
+          </div>
+          <div class="metric">
+            <h3>2 Hyper</h3>
+            <span>New flagships planned</span>
+          </div>
+          <div class="metric">
+            <h3>18 Super</h3>
+            <span>Neighborhood markets</span>
+          </div>
+          <div class="metric">
+            <h3>Central</h3>
+            <span>Warehousing & replenishment</span>
+          </div>
+        </div>
+        <div class="chip-row" style="margin-top:14px;">
+          <span class="chip">Imran Khan, Founder & MD</span>
+          <span class="chip">HQ: Bhopal</span>
+          <span class="chip">Value-led assortment</span>
+          <span class="chip">Fast replenishment</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Brand Pillars
+        <span class="divider"></span>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h4>Quality first, always</h4>
+          <p>National, regional, and economy brands curated to keep quality uncompromised across income segments.</p>
+        </div>
+        <div class="card">
+          <h4>Value-for-money pricing</h4>
+          <p>Scale efficiencies and centralized procurement let us pass real savings to shoppers—daily, not just promo days.</p>
+        </div>
+        <div class="card">
+          <h4>Supply chain strength</h4>
+          <p>Central warehouses, consolidated sourcing, and responsive replenishment keep shelves full and fresh.</p>
+        </div>
+        <div class="card">
+          <h4>Customer-first service</h4>
+          <p>Transparent pricing, easy navigation, and attentive staff drive repeat footfall and long-term loyalty.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Expansion Map · Next 20 Stores
+        <span class="divider"></span>
+      </div>
+      <div class="cities">
+        <div class="city">Arera</div><div class="city">Ashima</div><div class="city">Katara</div><div class="city">Bagsewania</div>
+        <div class="city">Gulmohar</div><div class="city">Rohit Nagar</div><div class="city">Chuna Bhatti</div><div class="city">Budhwara</div>
+        <div class="city">Jehangirabad</div><div class="city">Shahjahanabad</div><div class="city">Karod</div><div class="city">Idgah · Lal Ghati</div>
+        <div class="city">Airport Area</div><div class="city">Mandideep</div><div class="city">Sehore</div><div class="city">Ratibad</div>
+        <div class="city">Urban hubs</div><div class="city">Semi-urban catchments</div>
+      </div>
+      <div class="chip-row" style="margin-top:12px;">
+        <span class="chip">Hyper: 2</span>
+        <span class="chip">Super: 18</span>
+        <span class="chip">Last-mile focus</span>
+        <span class="chip">Visibility-led clusters</span>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Operations & Supply Chain
+        <span class="divider"></span>
+      </div>
+      <div class="story">
+        <div class="card">
+          <h4>Centralized warehousing</h4>
+          <p>Consolidated procurement drives better vendor terms and faster turns; central DCs feed high-frequency routes for FMCG, grocery, and staples.</p>
+          <div class="chip-row">
+            <span class="chip">Tighter sourcing control</span>
+            <span class="chip">Fast replenishment</span>
+            <span class="chip">Stable availability</span>
+          </div>
+        </div>
+        <img src="../Apoorti Logo/Aapoorti Logo png.png" alt="Aapoorti mark" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Market Pulse · Central India
+        <span class="divider"></span>
+      </div>
+      <div class="grid-tight">
+        <div class="stat-block">
+          <strong>~INR 12.1 lakh cr GSDP</strong>
+          <p>Madhya Pradesh FY24 (est., public GSDP tables); rising consumption on urbanization and income growth.</p>
+        </div>
+        <div class="stat-block">
+          <strong>Retail CAGR ~10–12%</strong>
+          <p>India’s retail market trending toward ~USD 1.1T (2023 est., industry reports) with organized formats expanding fastest.</p>
+        </div>
+        <div class="stat-block">
+          <strong>Central India edge</strong>
+          <p>Urban cluster growth across Bhopal metro & satellite towns creates high-frequency demand for daily essentials.</p>
+        </div>
+        <div class="stat-block">
+          <strong>Brand facts</strong>
+          <p>Aapoorti Shopping Mall Ltd., incorporated 2002; founder & MD: Imran Khan (public listings such as ZaubaCorp / D&B profiles).</p>
+        </div>
+      </div>
+      <div class="pill" style="margin-top:10px;">Sources: DuckDuckGo-surfaced public listings (ZaubaCorp, D&B, EMIS); India retail market reports (IMARC-style); MOSPI GSDP tables.</div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Why Aapoorti Wins
+        <span class="divider"></span>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h4>Everyday value</h4>
+          <p>Transparent pricing with economy + premium ladders to serve mixed income profiles without trading off quality.</p>
+        </div>
+        <div class="card">
+          <h4>Assortment depth</h4>
+          <p>FMCG, grocery, staples, household essentials with regional heroes and trusted national names.</p>
+        </div>
+        <div class="card">
+          <h4>Experience that sticks</h4>
+          <p>Easy navigation, quick checkout, attentive staff, and reliable availability build repeat footfall.</p>
+        </div>
+        <div class="card">
+          <h4>Operational discipline</h4>
+          <p>Procurement rigor, vendor relationships, and financial prudence enable scalable, profitable expansion.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Vision & Mission
+        <span class="divider"></span>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h4>Vision</h4>
+          <p>Be Central India’s most trusted retail network for quality products, value-driven pricing, and reliable service across formats.</p>
+        </div>
+        <div class="card">
+          <h4>Mission</h4>
+          <ul>
+            <li>Deliver true value for money in FMCG, grocery, and household essentials.</li>
+            <li>Keep service standards high—availability, transparent pricing, responsive staff.</li>
+            <li>Run efficient, centralized procurement and warehousing for scale.</li>
+            <li>Expand responsibly in high-potential markets with operational discipline.</li>
+            <li>Build long-term trust for customers, partners, and stakeholders.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Ready to activate Aapoorti’s next phase? · contact@aapoorti.com · Bhopal, Madhya Pradesh
+    </footer>
+  </main>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+
+    // Gentle parallax on mouse move
+    const hero = document.querySelector(".hero");
+    hero.addEventListener("pointermove", (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      hero.style.setProperty("--tiltX", y * 4 + "deg");
+      hero.style.setProperty("--tiltY", x * -4 + "deg");
+      hero.style.transform = `perspective(900px) rotateX(${y * 4}deg) rotateY(${x * -4}deg)`;
+    });
+
+    hero.addEventListener("pointerleave", () => {
+      hero.style.transform = "none";
+    });
+  </script>
+</body>
+</html>
