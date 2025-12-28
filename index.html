@@ -338,25 +338,7 @@
     }
 
     .floating-tag {
-      position: absolute;
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: rgba(217, 4, 41, 0.08);
-      border: 1px solid rgba(217, 4, 41, 0.24);
-      color: var(--pearl);
-      font-size: 13px;
-      backdrop-filter: blur(4px);
-      animation: float 6s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    .floating-tag:nth-child(1) { top: 16px; right: 16px; animation-delay: 0.2s; }
-    .floating-tag:nth-child(2) { bottom: 16px; left: 16px; animation-delay: 0.8s; }
-    .floating-tag:nth-child(3) { bottom: 46%; right: 12px; animation-delay: 1.2s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); opacity: 0.9; }
-      50% { transform: translateY(-8px); opacity: 1; }
+      display: none;
     }
 
     .fade-up {
@@ -399,10 +381,6 @@
     </header>
 
     <section class="hero fade-up">
-      <div class="floating-tag">Value-for-money mix</div>
-      <div class="floating-tag">3+ decades of retail execution</div>
-      <div class="floating-tag">Bhopal HQ · Central India</div>
-
       <div class="hero-text">
         <h2>Quality that stays honest. Pricing that stays sharp.</h2>
         <p>
