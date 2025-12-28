@@ -518,6 +518,8 @@
       padding: 18px;
       background: #fff;
       box-shadow: var(--shadow);
+      max-width: 780px;
+      margin: 0 auto;
     }
 
     .map-legend {
@@ -887,9 +889,9 @@
         <span class="divider"></span>
       </div>
       <div class="map-wrap">
-        <div style="position: relative;">
-          <img src="C:/Users/HP/Downloads/bhopal-map-detailed-of-city-vector-44404262.avif" alt="Bhopal reference map" style="width:100%; border-radius:12px; opacity:0.35; mix-blend-mode:multiply;">
-          <svg id="expansion-map" viewBox="0 0 600 380" aria-labelledby="expansion-title" style="position:absolute; inset:0;">
+        <div style="position: relative; min-height: 280px;">
+          <img src="C:/Users/HP/Downloads/bhopal-map-detailed-of-city-vector-44404262.avif" alt="Bhopal reference map" style="width:100%; height:280px; object-fit: cover; border-radius:12px; opacity:0.25; mix-blend-mode:multiply;">
+          <svg id="expansion-map" viewBox="0 0 600 320" aria-labelledby="expansion-title" style="position:absolute; inset:0; height:280px;">
           <defs>
             <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
               <stop offset="0%" stop-color="rgba(217,4,41,0.08)"/>
@@ -898,27 +900,26 @@
           </defs>
           <rect x="0" y="0" width="600" height="380" fill="url(#bgGradient)"/>
           <g id="nodes">
-            <circle class="node core" cx="310" cy="180" r="12"/>
-            <text class="node-label" x="310" y="175" text-anchor="middle" fill="#fff">Bhopal HQ</text>
+            <circle class="node core" cx="310" cy="160" r="10"/>
 
-            <circle class="node" cx="210" cy="120" r="10"/><text class="node-label" x="210" y="112" text-anchor="middle">Arera</text>
-            <circle class="node" cx="255" cy="90" r="9"/><text class="node-label" x="255" y="82" text-anchor="middle">Gulmohar</text>
-            <circle class="node" cx="360" cy="95" r="9"/><text class="node-label" x="360" y="87" text-anchor="middle">Ashima</text>
-            <circle class="node" cx="400" cy="120" r="9"/><text class="node-label" x="400" y="112" text-anchor="middle">Katara</text>
-            <circle class="node" cx="450" cy="160" r="9"/><text class="node-label" x="450" y="152" text-anchor="middle">Bagsewania</text>
-            <circle class="node" cx="210" cy="210" r="9"/><text class="node-label" x="210" y="202" text-anchor="middle">Rohit Nagar</text>
-            <circle class="node" cx="260" cy="230" r="9"/><text class="node-label" x="260" y="222" text-anchor="middle">Chuna Bhatti</text>
-            <circle class="node" cx="320" cy="245" r="9"/><text class="node-label" x="320" y="237" text-anchor="middle">Budhwara</text>
-            <circle class="node" cx="370" cy="220" r="9"/><text class="node-label" x="370" y="212" text-anchor="middle">Jehangirabad</text>
-            <circle class="node" cx="430" cy="210" r="9"/><text class="node-label" x="430" y="202" text-anchor="middle">Shahjahanabad</text>
-            <circle class="node" cx="480" cy="190" r="9"/><text class="node-label" x="480" y="182" text-anchor="middle">Karod</text>
-            <circle class="node" cx="520" cy="220" r="9"/><text class="node-label" x="520" y="212" text-anchor="middle">Idgah · Lal Ghati</text>
-            <circle class="node" cx="500" cy="260" r="9"/><text class="node-label" x="500" y="252" text-anchor="middle">Airport Area</text>
-            <circle class="node" cx="430" cy="280" r="9"/><text class="node-label" x="430" y="272" text-anchor="middle">Mandideep</text>
-            <circle class="node" cx="360" cy="300" r="9"/><text class="node-label" x="360" y="292" text-anchor="middle">Sehore</text>
-            <circle class="node" cx="290" cy="300" r="9"/><text class="node-label" x="290" y="292" text-anchor="middle">Ratibad</text>
-            <circle class="node" cx="240" cy="270" r="9"/><text class="node-label" x="240" y="262" text-anchor="middle">Urban hubs</text>
-            <circle class="node" cx="180" cy="250" r="9"/><text class="node-label" x="180" y="242" text-anchor="middle">Semi-urban</text>
+            <circle class="node" cx="210" cy="110" r="8"/>
+            <circle class="node" cx="255" cy="80" r="7"/>
+            <circle class="node" cx="360" cy="85" r="7"/>
+            <circle class="node" cx="400" cy="110" r="7"/>
+            <circle class="node" cx="450" cy="145" r="7"/>
+            <circle class="node" cx="210" cy="200" r="7"/>
+            <circle class="node" cx="260" cy="215" r="7"/>
+            <circle class="node" cx="320" cy="230" r="7"/>
+            <circle class="node" cx="370" cy="210" r="7"/>
+            <circle class="node" cx="430" cy="200" r="7"/>
+            <circle class="node" cx="480" cy="180" r="7"/>
+            <circle class="node" cx="520" cy="205" r="7"/>
+            <circle class="node" cx="500" cy="240" r="7"/>
+            <circle class="node" cx="430" cy="255" r="7"/>
+            <circle class="node" cx="360" cy="270" r="7"/>
+            <circle class="node" cx="290" cy="270" r="7"/>
+            <circle class="node" cx="240" cy="250" r="7"/>
+            <circle class="node" cx="180" cy="235" r="7"/>
           </g>
           </svg>
         </div>
