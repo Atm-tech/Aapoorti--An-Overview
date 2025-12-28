@@ -358,8 +358,8 @@
     .loader-overlay {
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(217,4,41,0.08), transparent 35%),
-                  radial-gradient(circle at 70% 70%, rgba(127,0,21,0.06), transparent 40%),
+      background: radial-gradient(circle at 30% 30%, rgba(217,4,41,0.06), transparent 35%),
+                  radial-gradient(circle at 70% 70%, rgba(127,0,21,0.05), transparent 40%),
                   #ffffff;
       display: flex;
       align-items: center;
@@ -686,7 +686,7 @@
       <div class="loader-logo">
         <img src="./assets/logo.png" alt="Aapoorti logo loading">
       </div>
-      <div class="loader-text">Sabse Sasta · Sabse Acchaa</div>
+      <div class="loader-text">सबसे सस्ता · सबसे अच्छा</div>
       <div class="progress"><span></span></div>
     </div>
   </div>
@@ -1224,11 +1224,11 @@
       hero.style.transform = "none";
     });
 
-    // Loader logic: show for 5-8s, then fade out
+    // Loader logic: show briefly (<=4s), then fade out
     window.addEventListener("load", () => {
       const loader = document.getElementById("loader");
-      const minTime = 5000;
-      const maxTime = 8000;
+      const minTime = 2500;
+      const maxTime = 4000;
       const timeout = minTime + Math.random() * (maxTime - minTime);
       setTimeout(() => {
         loader.style.opacity = "0";
