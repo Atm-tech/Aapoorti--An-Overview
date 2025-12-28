@@ -151,6 +151,30 @@
       color: var(--sand);
     }
 
+    .print-fab {
+      position: fixed;
+      right: clamp(12px, 2vw, 24px);
+      bottom: clamp(12px, 2vw, 24px);
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--pearl);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 14px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .print-fab:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+    }
+
     .btn {
       border: none;
       border-radius: 999px;
@@ -1177,7 +1201,7 @@
             <span class="chip">Stable availability</span>
           </div>
         </div>
-        <img src="../Apoorti Logo/Aapoorti Logo png.png" alt="Aapoorti mark" loading="lazy" />
+        <img src="./assets/logo-black-white.png" alt="Aapoorti mark" loading="lazy" />
       </div>
     </section>
 
@@ -1270,6 +1294,8 @@
     </footer>
   </main>
 
+  <button class="print-fab" id="bw-print-fab" type="button">⬛⬜ Print B&W</button>
+
   <script>
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
@@ -1300,11 +1326,13 @@
 
     // Black & white print/download helper
     const printButton = document.getElementById("bw-print");
+    const printFab = document.getElementById("bw-print-fab");
     const enterPrintMode = () => document.body.classList.add("print-mode");
     const exitPrintMode = () => document.body.classList.remove("print-mode");
 
-    if (printButton) {
-      printButton.addEventListener("click", () => {
+    const wirePrint = (el) => {
+      if (!el) return;
+      el.addEventListener("click", () => {
         enterPrintMode();
         window.print();
         setTimeout(exitPrintMode, 600);
@@ -1316,7 +1344,10 @@
       } else if (mq.addListener) {
         mq.addListener((e) => (e.matches ? enterPrintMode() : exitPrintMode()));
       }
-    }
+    };
+
+    wirePrint(printButton);
+    wirePrint(printFab);
 
     // Loader logic: show briefly (<=4s), then fade out
     window.addEventListener("load", () => {
