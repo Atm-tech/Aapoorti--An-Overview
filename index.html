@@ -511,6 +511,75 @@
       line-height: 1.6;
     }
 
+    /* expansion map */
+    .map-wrap {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .legend-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border);
+      color: var(--pearl);
+      font-size: 13px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--crimson);
+      box-shadow: 0 0 0 4px rgba(217, 4, 41, 0.12);
+    }
+
+    svg#expansion-map {
+      width: 100%;
+      height: auto;
+    }
+
+    .node {
+      fill: #fff;
+      stroke: var(--crimson);
+      stroke-width: 2;
+      filter: drop-shadow(0 6px 12px rgba(217, 4, 41, 0.25));
+      animation: pulse 2.8s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .node-label {
+      font-family: "Space Grotesk", "Sora", system-ui, sans-serif;
+      font-size: 12px;
+      fill: var(--pearl);
+      pointer-events: none;
+    }
+
+    .node.core {
+      fill: var(--crimson);
+      stroke: transparent;
+      animation-duration: 2.2s;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.9; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
     @media (max-width: 640px) {
       header.nav {
         flex-direction: column;
@@ -817,18 +886,46 @@
         Expansion Map · Next 20 Stores
         <span class="divider"></span>
       </div>
-      <div class="cities">
-        <div class="city">Arera</div><div class="city">Ashima</div><div class="city">Katara</div><div class="city">Bagsewania</div>
-        <div class="city">Gulmohar</div><div class="city">Rohit Nagar</div><div class="city">Chuna Bhatti</div><div class="city">Budhwara</div>
-        <div class="city">Jehangirabad</div><div class="city">Shahjahanabad</div><div class="city">Karod</div><div class="city">Idgah · Lal Ghati</div>
-        <div class="city">Airport Area</div><div class="city">Mandideep</div><div class="city">Sehore</div><div class="city">Ratibad</div>
-        <div class="city">Urban hubs</div><div class="city">Semi-urban catchments</div>
-      </div>
-      <div class="chip-row" style="margin-top:12px;">
-        <span class="chip">Hyper: 2</span>
-        <span class="chip">Super: 18</span>
-        <span class="chip">Last-mile focus</span>
-        <span class="chip">Visibility-led clusters</span>
+      <div class="map-wrap">
+        <svg id="expansion-map" viewBox="0 0 600 380" aria-labelledby="expansion-title">
+          <defs>
+            <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
+              <stop offset="0%" stop-color="rgba(217,4,41,0.08)"/>
+              <stop offset="100%" stop-color="rgba(217,4,41,0)"/>
+            </radialGradient>
+          </defs>
+          <rect x="0" y="0" width="600" height="380" fill="#fff"/>
+          <rect x="0" y="0" width="600" height="380" fill="url(#bgGradient)"/>
+          <g id="nodes">
+            <circle class="node core" cx="310" cy="180" r="12"/>
+            <text class="node-label" x="310" y="175" text-anchor="middle" fill="#fff">Bhopal HQ</text>
+
+            <circle class="node" cx="210" cy="120" r="10"/><text class="node-label" x="210" y="112" text-anchor="middle">Arera</text>
+            <circle class="node" cx="255" cy="90" r="9"/><text class="node-label" x="255" y="82" text-anchor="middle">Gulmohar</text>
+            <circle class="node" cx="360" cy="95" r="9"/><text class="node-label" x="360" y="87" text-anchor="middle">Ashima</text>
+            <circle class="node" cx="400" cy="120" r="9"/><text class="node-label" x="400" y="112" text-anchor="middle">Katara</text>
+            <circle class="node" cx="450" cy="160" r="9"/><text class="node-label" x="450" y="152" text-anchor="middle">Bagsewania</text>
+            <circle class="node" cx="210" cy="210" r="9"/><text class="node-label" x="210" y="202" text-anchor="middle">Rohit Nagar</text>
+            <circle class="node" cx="260" cy="230" r="9"/><text class="node-label" x="260" y="222" text-anchor="middle">Chuna Bhatti</text>
+            <circle class="node" cx="320" cy="245" r="9"/><text class="node-label" x="320" y="237" text-anchor="middle">Budhwara</text>
+            <circle class="node" cx="370" cy="220" r="9"/><text class="node-label" x="370" y="212" text-anchor="middle">Jehangirabad</text>
+            <circle class="node" cx="430" cy="210" r="9"/><text class="node-label" x="430" y="202" text-anchor="middle">Shahjahanabad</text>
+            <circle class="node" cx="480" cy="190" r="9"/><text class="node-label" x="480" y="182" text-anchor="middle">Karod</text>
+            <circle class="node" cx="520" cy="220" r="9"/><text class="node-label" x="520" y="212" text-anchor="middle">Idgah · Lal Ghati</text>
+            <circle class="node" cx="500" cy="260" r="9"/><text class="node-label" x="500" y="252" text-anchor="middle">Airport Area</text>
+            <circle class="node" cx="430" cy="280" r="9"/><text class="node-label" x="430" y="272" text-anchor="middle">Mandideep</text>
+            <circle class="node" cx="360" cy="300" r="9"/><text class="node-label" x="360" y="292" text-anchor="middle">Sehore</text>
+            <circle class="node" cx="290" cy="300" r="9"/><text class="node-label" x="290" y="292" text-anchor="middle">Ratibad</text>
+            <circle class="node" cx="240" cy="270" r="9"/><text class="node-label" x="240" y="262" text-anchor="middle">Urban hubs</text>
+            <circle class="node" cx="180" cy="250" r="9"/><text class="node-label" x="180" y="242" text-anchor="middle">Semi-urban</text>
+          </g>
+        </svg>
+        <div class="map-legend">
+          <span class="legend-chip"><span class="legend-dot"></span> Planned Hyper (2)</span>
+          <span class="legend-chip"><span class="legend-dot" style="background:#ff6b81; box-shadow:0 0 0 4px rgba(255,107,129,0.15)"></span> Planned Super (18)</span>
+          <span class="legend-chip"><span class="legend-dot" style="background:#7f0015; box-shadow:0 0 0 4px rgba(127,0,21,0.12)"></span> Bhopal HQ</span>
+          <span class="legend-chip">Animated pulse = expansion focus</span>
+        </div>
       </div>
     </section>
 
