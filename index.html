@@ -352,6 +352,165 @@
       transform: translateY(0);
     }
 
+    /* extra animation & layout for long scroll */
+    .band {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(90deg, rgba(217, 4, 41, 0.06), rgba(0, 0, 0, 0));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 0;
+      margin: 18px 0;
+    }
+
+    .marquee {
+      display: flex;
+      gap: 24px;
+      white-space: nowrap;
+      animation: slide 16s linear infinite;
+      padding: 0 12px;
+    }
+
+    .marquee span {
+      font-weight: 600;
+      color: var(--pearl);
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .row-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .glow-panel {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      background: linear-gradient(145deg, rgba(217, 4, 41, 0.05), #ffffff);
+      box-shadow: var(--shadow);
+    }
+
+    .glow-panel h4 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .glow-panel p {
+      margin: 0;
+      color: var(--sand);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    .timeline-item strong {
+      font-size: 14px;
+      color: var(--pearl);
+    }
+
+    .timeline-item span {
+      color: var(--sand);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.02);
+      margin-top: 12px;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+      animation: drift 22s linear infinite;
+    }
+
+    .slider-card {
+      min-width: 260px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .slider-card h5 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+
+    .slider-card p {
+      margin: 0;
+      color: var(--sand);
+      line-height: 1.5;
+      font-size: 13px;
+    }
+
+    @keyframes drift {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .full-bleed {
+      padding: 28px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: linear-gradient(120deg, rgba(217, 4, 41, 0.05), rgba(0, 0, 0, 0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .band-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .band-stats .stat-block {
+      background: #fff;
+    }
+
+    .callout {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.02);
+      font-size: 14px;
+      color: var(--sand);
+      line-height: 1.6;
+    }
+
     @media (max-width: 640px) {
       header.nav {
         flex-direction: column;
@@ -418,6 +577,212 @@
           <span class="chip">HQ: Bhopal</span>
           <span class="chip">Value-led assortment</span>
           <span class="chip">Fast replenishment</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Shopper Promise
+        <span class="divider"></span>
+      </div>
+      <div class="row-cards">
+        <div class="glow-panel">
+          <h4>Sabse Sasta, Sabse Acchaa</h4>
+          <p>Transparent price ladders across economy, popular, and premium SKUs—so shoppers always see the value tiers.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Availability you count on</h4>
+          <p>High-frequency essentials are prioritized with daily gap checks and quick replenishment playbooks.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Speed in-store</h4>
+          <p>Clear wayfinding, quick-bill queues, and end-cap highlights keep time-to-basket low.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Local-first curation</h4>
+          <p>Regional favorites sit beside trusted national brands to match neighborhood tastes.</p>
+        </div>
+      </div>
+      <div class="band">
+        <div class="marquee">
+          <span>Sabse Sasta</span><span>Sabse Acchaa</span><span>Transparent Pricing</span><span>Fresh & Available</span><span>Value Ladders</span><span>Neighborhood Fit</span><span>Fast Checkout</span><span>Sabse Sasta</span><span>Sabse Acchaa</span><span>Transparent Pricing</span><span>Fresh & Available</span><span>Value Ladders</span><span>Neighborhood Fit</span><span>Fast Checkout</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Price Integrity Playbook
+        <span class="divider"></span>
+      </div>
+      <div class="full-bleed">
+        <div class="band-stats">
+          <div class="stat-block">
+            <strong>Daily audits</strong>
+            <p>Price boards, shelf tags, and POS alignment checked before opening.</p>
+          </div>
+          <div class="stat-block">
+            <strong>Compare & win</strong>
+            <p>Competitive scans on KVIs (key value items) to keep “sabse sasta” honest.</p>
+          </div>
+          <div class="stat-block">
+            <strong>Bundle clarity</strong>
+            <p>Multi-buy and value packs signed with total savings, not fine print.</p>
+          </div>
+          <div class="stat-block">
+            <strong>Expiry control</strong>
+            <p>Freshness checks with first-expiry-first-out flows on dairy, bakery, staples.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Experience Playbook
+        <span class="divider"></span>
+      </div>
+      <div class="row-cards">
+        <div class="glow-panel">
+          <h4>Navigation & zoning</h4>
+          <p>High-frequency items up front; discovery aisles mid-store; family baskets guided by clear bilingual signage.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Speed lanes</h4>
+          <p>Express counters for small baskets; digital-ready POS to keep lines moving.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Service etiquette</h4>
+          <p>Greeting, aisle assist, fast returns, and price-check support tuned for repeat loyalty.</p>
+        </div>
+      </div>
+      <div class="slider">
+        <div class="slider-track">
+          <div class="slider-card">
+            <h5>Fresh-first placement</h5>
+            <p>Produce and dairy near entry to reassure freshness and quality.</p>
+          </div>
+          <div class="slider-card">
+            <h5>Clear offers</h5>
+            <p>Promos tagged with simple savings math; no hidden conditions.</p>
+          </div>
+          <div class="slider-card">
+            <h5>Basket builders</h5>
+            <p>Cross-merch staples + condiments + snacks to grow AOV without upsell pressure.</p>
+          </div>
+          <div class="slider-card">
+            <h5>Kids & family</h5>
+            <p>Clean aisles, quick checkout, and ready-to-grab essentials for family missions.</p>
+          </div>
+          <div class="slider-card">
+            <h5>Last-meter help</h5>
+            <p>Staff assist for bulk pick, load-outs, and price verification.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Assortment Depth
+        <span class="divider"></span>
+      </div>
+      <div class="row-cards">
+        <div class="glow-panel">
+          <h4>FMCG & staples</h4>
+          <p>Everyday FMCG, staples, grains, oils, and daily-use categories anchored with reliable brands.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Household essentials</h4>
+          <p>Cleaning, hygiene, paper, and home-care staples maintained with high on-shelf availability.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Regional heroes</h4>
+          <p>Local favorites and trusted regional brands featured for neighborhood resonance.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Value packs</h4>
+          <p>Multi-size packs and economy bundles to support monthly and weekly stock-up missions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Operations
+        <span class="divider"></span>
+      </div>
+      <div class="story">
+        <div class="card">
+          <h4>Centralized procurement</h4>
+          <p>Consolidated sourcing with strong vendor relationships; agile allocation to hyper and super formats.</p>
+          <div class="chip-row">
+            <span class="chip">Partner distribution</span>
+            <span class="chip">Fast replenishment</span>
+            <span class="chip">On-shelf reliability</span>
+          </div>
+        </div>
+        <img src="../Apoorti Logo/Aapoorti Logo png.png" alt="Aapoorti mark" loading="lazy" />
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>Plan</strong>
+          <span>Demand plans by cluster and format; KVIs locked for price integrity.</span>
+        </div>
+        <div class="timeline-item">
+          <strong>Source</strong>
+          <span>Vendor negotiation and consolidated buying for better terms and availability.</span>
+        </div>
+        <div class="timeline-item">
+          <strong>Move</strong>
+          <span>Partner DCs and routed deliveries to keep shelf-gaps low across urban and semi-urban stores.</span>
+        </div>
+        <div class="timeline-item">
+          <strong>Serve</strong>
+          <span>Store teams focus on freshness checks, tidy shelves, and quick assistance.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Digital Touchpoints
+        <span class="divider"></span>
+      </div>
+      <div class="row-cards">
+        <div class="glow-panel">
+          <h4>Offer visibility</h4>
+          <p>Weekly highlights and price drops surfaced via social and in-store QR boards.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Store locators</h4>
+          <p>Easy “find my store” with timings and contact for each neighborhood location.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Feedback loop</h4>
+          <p>Quick surveys and service tickets routed to store managers for same-day response.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-up">
+      <div class="section-title">
+        Community & Loyalty
+        <span class="divider"></span>
+      </div>
+      <div class="row-cards">
+        <div class="glow-panel">
+          <h4>Neighborhood events</h4>
+          <p>Festival-ready assortments and local tie-ins to keep stores culturally aligned.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Everyday rewards</h4>
+          <p>Points on essentials, bonus on KVIs, and simple redemption—no hoops.</p>
+        </div>
+        <div class="glow-panel">
+          <h4>Service recovery</h4>
+          <p>Issue resolution at store-level with transparent make-good for customers.</p>
         </div>
       </div>
     </section>
