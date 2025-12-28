@@ -138,6 +138,19 @@
       margin-top: 12px;
     }
 
+    .print-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .print-note {
+      font-size: 13px;
+      color: var(--sand);
+    }
+
     .btn {
       border: none;
       border-radius: 999px;
@@ -638,6 +651,31 @@
       height: auto;
     }
 
+    body.print-mode * {
+      filter: grayscale(1) contrast(1.05) !important;
+      color: #000 !important;
+      background: #fff !important;
+      box-shadow: none !important;
+    }
+
+    body.print-mode .hero::after,
+    body.print-mode .noise {
+      display: none !important;
+    }
+
+    @media print {
+      * {
+        filter: grayscale(1) contrast(1.05) !important;
+        color: #000 !important;
+        background: #fff !important;
+        box-shadow: none !important;
+      }
+      .hero::after,
+      .noise {
+        display: none !important;
+      }
+    }
+
     .node {
       fill: #fff;
       stroke: var(--crimson);
@@ -743,6 +781,11 @@
         <div class="cta-row">
           <button class="btn primary">Explore network</button>
           <button class="btn ghost">Meet our supply chain</button>
+        </div>
+        <div class="print-cta">
+          <button class="btn ghost" id="bw-print">Black & White print / PDF</button>
+          <a class="btn ghost" href="./assets/logo-black-white.png" download>Download B&W logo</a>
+          <span class="print-note">Print or save as PDF in monochrome for quick handouts.</span>
         </div>
       </div>
 
@@ -1254,6 +1297,26 @@
     hero.addEventListener("pointerleave", () => {
       hero.style.transform = "none";
     });
+
+    // Black & white print/download helper
+    const printButton = document.getElementById("bw-print");
+    const enterPrintMode = () => document.body.classList.add("print-mode");
+    const exitPrintMode = () => document.body.classList.remove("print-mode");
+
+    if (printButton) {
+      printButton.addEventListener("click", () => {
+        enterPrintMode();
+        window.print();
+        setTimeout(exitPrintMode, 600);
+      });
+
+      const mq = window.matchMedia("print");
+      if (mq.addEventListener) {
+        mq.addEventListener("change", (e) => (e.matches ? enterPrintMode() : exitPrintMode()));
+      } else if (mq.addListener) {
+        mq.addListener((e) => (e.matches ? enterPrintMode() : exitPrintMode()));
+      }
+    }
 
     // Loader logic: show briefly (<=4s), then fade out
     window.addEventListener("load", () => {
