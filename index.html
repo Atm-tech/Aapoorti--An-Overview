@@ -64,14 +64,13 @@
 
     .brand {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .brand img {
-      width: 240px;
-      height: 240px;
+      width: 56px;
+      height: 56px;
       object-fit: contain;
       filter: drop-shadow(0 10px 14px rgba(217, 4, 41, 0.15));
     }
@@ -84,7 +83,7 @@
     }
 
     .pill {
-      padding: 12px 16px;
+      padding: 10px 14px;
       border: 1px solid var(--border);
       border-radius: 999px;
       font-size: 13px;
@@ -589,11 +588,6 @@
       header.nav {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
-      }
-      .brand img {
-        width: 180px;
-        height: 180px;
       }
       .hero {
         padding: 18px;
@@ -602,25 +596,18 @@
         max-width: 100%;
       }
     }
-
-    @media (max-width: 420px) {
-      .brand img {
-        width: 140px;
-        height: 140px;
-      }
-      .pill {
-        font-size: 12px;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
   <main>
     <header class="nav">
-      <div class="brand" style="flex-wrap: wrap; gap: 8px 14px; align-items: center;">
+      <div class="brand" style="flex-wrap: wrap; gap: 8px 14px;">
         <img src="./assets/logo.png" alt="Aapoorti logo" />
-        <div class="pill" style="width:100%; text-align:center; min-width:240px;">Sabse Sasta · Sabse Acchaa</div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
+          <h1 style="margin:0;">Aapoorti Shopping Malls Limited</h1>
+          <div class="pill" style="width:100%; text-align:center; min-width:240px;">Sabse Sasta · Sabse Acchaa</div>
+        </div>
       </div>
       <div class="pill">Founded 2002 · CIN U52190MP2002PLC015262</div>
     </header>
