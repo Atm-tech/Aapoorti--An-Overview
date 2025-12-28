@@ -367,7 +367,7 @@
       display: flex;
       gap: 24px;
       white-space: nowrap;
-      animation: slide 16s linear infinite;
+      animation: slide 30s linear infinite;
       padding: 0 12px;
     }
 
@@ -453,7 +453,7 @@
       display: flex;
       gap: 16px;
       padding: 16px;
-      animation: drift 22s linear infinite;
+      animation: drift 40s linear infinite;
     }
 
     .slider-card {
@@ -556,8 +556,8 @@
       fill: #fff;
       stroke: var(--crimson);
       stroke-width: 2;
-      filter: drop-shadow(0 6px 12px rgba(217, 4, 41, 0.25));
-      animation: pulse 2.8s ease-in-out infinite;
+      filter: drop-shadow(0 3px 8px rgba(217, 4, 41, 0.15));
+      animation: pulse 6s ease-in-out infinite;
       transform-origin: center;
     }
 
@@ -571,12 +571,12 @@
     .node.core {
       fill: var(--crimson);
       stroke: transparent;
-      animation-duration: 2.2s;
+      animation-duration: 7s;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.08); opacity: 0.9; }
+      50% { transform: scale(1.02); opacity: 0.9; }
       100% { transform: scale(1); opacity: 1; }
     }
 
@@ -887,14 +887,15 @@
         <span class="divider"></span>
       </div>
       <div class="map-wrap">
-        <svg id="expansion-map" viewBox="0 0 600 380" aria-labelledby="expansion-title">
+        <div style="position: relative;">
+          <img src="C:/Users/HP/Downloads/bhopal-map-detailed-of-city-vector-44404262.avif" alt="Bhopal reference map" style="width:100%; border-radius:12px; opacity:0.35; mix-blend-mode:multiply;">
+          <svg id="expansion-map" viewBox="0 0 600 380" aria-labelledby="expansion-title" style="position:absolute; inset:0;">
           <defs>
             <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
               <stop offset="0%" stop-color="rgba(217,4,41,0.08)"/>
               <stop offset="100%" stop-color="rgba(217,4,41,0)"/>
             </radialGradient>
           </defs>
-          <rect x="0" y="0" width="600" height="380" fill="#fff"/>
           <rect x="0" y="0" width="600" height="380" fill="url(#bgGradient)"/>
           <g id="nodes">
             <circle class="node core" cx="310" cy="180" r="12"/>
@@ -919,12 +920,19 @@
             <circle class="node" cx="240" cy="270" r="9"/><text class="node-label" x="240" y="262" text-anchor="middle">Urban hubs</text>
             <circle class="node" cx="180" cy="250" r="9"/><text class="node-label" x="180" y="242" text-anchor="middle">Semi-urban</text>
           </g>
-        </svg>
+          </svg>
+        </div>
         <div class="map-legend">
           <span class="legend-chip"><span class="legend-dot"></span> Planned Hyper (2)</span>
           <span class="legend-chip"><span class="legend-dot" style="background:#ff6b81; box-shadow:0 0 0 4px rgba(255,107,129,0.15)"></span> Planned Super (18)</span>
           <span class="legend-chip"><span class="legend-dot" style="background:#7f0015; box-shadow:0 0 0 4px rgba(127,0,21,0.12)"></span> Bhopal HQ</span>
           <span class="legend-chip">Animated pulse = expansion focus</span>
+        </div>
+        <div class="chip-row" style="margin-top:10px;">
+          <span class="chip">South/South-East: Arera, Gulmohar, Katara, Bagsewania, Ashima</span>
+          <span class="chip">Central Belt: Chuna Bhatti, Budhwara, Jehangirabad, Shahjahanabad</span>
+          <span class="chip">North/West: Karod, Idgah · Lal Ghati, Airport Area</span>
+          <span class="chip">Satellite/Industrial: Mandideep (SE), Sehore (W), Ratibad (SW)</span>
         </div>
       </div>
     </section>
